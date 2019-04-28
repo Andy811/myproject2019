@@ -1,29 +1,36 @@
 package com.andy3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExceptionTest {
 
 	public static void main(String[] args) {
 		int math, english, average = 0;
-		
+
+		Scanner scanner = new Scanner(System.in);
+
 		try {
-			Scanner scanner = new Scanner(System.in);
-			
-			System.out.println("è«‹è¼¸å…¥è‹±æ–‡æˆç¸¾");
+			System.out.println("½Ğ¿é¤J­^¤å¦¨ÁZ");
 			english = scanner.nextInt();
-			System.out.println("è«‹è¼¸å…¥æ•¸å­¸æˆç¸¾");
-			math = scanner.nextInt();
-		if(english<0 || english>100 || math<0 || math>100) {
-		throw new GradeException();
+			if (english < 0 || english > 100) {
+				throw new GradeException(english);
+			}
 			
+			System.out.println("½Ğ¿é¤J¼Æ¾Ç¦¨ÁZ");
+			math = scanner.nextInt();
+
+			if (math < 0 || math > 100) {
+				throw new GradeException(math);
+			}
+			average = (math + english) / 2;
+			System.out.println("¥­§¡¬O" + average);
+		} catch (InputMismatchException e) {
+			System.out.println("¥²¶·¿é¤J¼Æ¦r");
+		} catch (GradeException e) {
+			System.out.println(e.getMessage());
 		}
-		
-			average = (math+english)/2;
-			System.out.println("å¹³å‡åˆ†æ•¸ç‚º" + average);
-		} catch (Exception e) {
-			System.out.println("è¼¸å…¥æ ¼å¼éŒ¯èª¤");
-		}
+
 	}
 
 }
