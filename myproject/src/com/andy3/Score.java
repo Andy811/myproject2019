@@ -7,8 +7,8 @@ public class Score {
 		try {
 			score=Integer.parseInt(s);
 		} catch (NumberFormatException e) {
-			System.out.println("7a");
-			throw new ScoreException();
+			System.out.println("½Ð¿é¤J¼Æ¦r");
+			throw new ScoreException(score);
 		}
 	}
 
