@@ -10,18 +10,24 @@ public class ReadTester {
 		FileInputStream fi = null;
 		try {
 			fi = new FileInputStream("result.txt");
-		int n = fi.read();
-		while(n != -1) {
-		System.out.println((char)n);
-		n=fi.read();
-		}
+			int n = fi.read();
+			while (n != -1) {
+				System.out.println((char) n);
+				n = fi.read();
+			}
 			System.out.println(fi.read());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
+			if (fi != null) {
+				try {
+					fi.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
