@@ -1,0 +1,3 @@
+Andy,10
+Amy,20
+Jack,30
